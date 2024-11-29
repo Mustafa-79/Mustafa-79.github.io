@@ -12,19 +12,48 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      background: linear-gradient(135deg, #73a5ff, #5477f5);
+      background: linear-gradient(135deg, #000000, #341f59);
       cursor: none;
+      position: relative;
     }
 
+    /* Heading for your name on the left */
+    #name {
+      position: absolute;
+      left: 5%; /* Position to the left */
+      top: 50%;
+      transform: translateY(-50%); /* Center it vertically */
+      font-size: 4rem;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      z-index: 2; /* Ensure it's above the circle */
+    }
+
+    /* One-liner below the name */
+    #one-liner {
+      position: absolute;
+      left: 5%;
+      top: calc(50% + 40px); /* Adjusted to be right below the name */
+      font-size: 1.2rem;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-style: italic;
+      z-index: 2; /* Ensure it's above the circle */
+    }
+
+    /* Profile Image */
     #profile {
       position: absolute;
-      right: 20px;
       top: 20px;
-      width: 150px;
-      height: 150px;
+      width: 300px; /* Make the image bigger */
+      height: 300px; /* Make the image bigger */
       border-radius: 50%;
       overflow: hidden;
       border: 5px solid white;
+      left: 70%;
+      transform: translateY(50%); /* Center it vertically */
+      z-index: 2; /* Ensure it's above the circle */
     }
 
     #profile img {
@@ -33,11 +62,12 @@
       object-fit: cover;
     }
 
+    /* Blue Circle with "Click for CV" */
     #cv-circle {
       position: absolute;
       width: 100px;
       height: 100px;
-      background-color: rgba(0, 0, 255, 0.7);
+      background-color: rgba(0, 255, 225, 0.7);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -46,10 +76,9 @@
       font-family: Arial, sans-serif;
       font-size: 14px;
       pointer-events: none;
-    }
-
-    #cv-circle:hover {
-      background-color: rgba(0, 0, 255, 1);
+      transition: opacity 0.2s ease-in-out;
+      opacity: 1;
+      z-index: 1; /* Ensure it's behind all other elements */
     }
 
     a {
@@ -59,9 +88,22 @@
   </style>
 </head>
 <body>
-  <div id="profile">
-    <img src="https://via.placeholder.com/150" alt="Mustafa Abbas">
+  <!-- Heading for your name on the left -->
+  <div id="name">
+    Mustafa Abbas
   </div>
+
+  <!-- One-liner below the name -->
+  <div id="one-liner">
+    Aspiring Computer Scientist and Researcher
+  </div>
+
+  <!-- Profile Image -->
+  <div id="profile">
+    <img src="pic.jpg" alt="Mustafa Abbas">
+  </div>
+
+  <!-- Circle with link to CV -->
   <div id="cv-circle">
     <a href="Mustafa_Abbas_Academic_CV.pdf" target="_blank">Click for CV</a>
   </div>
@@ -72,6 +114,15 @@
     document.addEventListener('mousemove', (e) => {
       circle.style.left = `${e.pageX - 50}px`;
       circle.style.top = `${e.pageY - 50}px`;
+      circle.style.opacity = 1;
+    });
+
+    document.addEventListener('mouseleave', () => {
+      circle.style.opacity = 0;
+    });
+
+    document.addEventListener('mouseenter', () => {
+      circle.style.opacity = 1;
     });
   </script>
 </body>
