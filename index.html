@@ -15,6 +15,7 @@
       background: linear-gradient(135deg, #000000, #341f59);
       cursor: none;
       position: relative;
+      font-family: Arial, sans-serif;
     }
 
     /* Heading for your name on the left */
@@ -25,7 +26,6 @@
       transform: translateY(-50%); /* Center it vertically */
       font-size: 4rem;
       color: white;
-      font-family: Arial, sans-serif;
       font-weight: bold;
       z-index: 2; /* Ensure it's above the circle */
     }
@@ -37,7 +37,6 @@
       top: calc(50% + 40px); /* Adjusted to be right below the name */
       font-size: 1.2rem;
       color: white;
-      font-family: Arial, sans-serif;
       font-style: italic;
       z-index: 2; /* Ensure it's above the circle */
     }
@@ -67,13 +66,12 @@
       position: absolute;
       width: 100px;
       height: 100px;
-      background-color: rgba(0, 255, 225, 0.7);
+      background-color: #00ffe1b3;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-family: Arial, sans-serif;
       font-size: 14px;
       pointer-events: none;
       transition: opacity 0.2s ease-in-out;
@@ -84,6 +82,59 @@
     a {
       color: white;
       text-decoration: none;
+    }
+
+    #mobile-text {
+      display: none; /* Hide the text on desktop */
+    }
+
+    /* Media query for mobile devices */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column; /* Stack elements vertically */
+        justify-content: center; /* Vertically center the content */
+        align-items: center; /* Horizontally center the content */
+        text-align: center;
+      }
+
+      #name, #one-liner, #profile {
+        position: relative;
+        top: auto;
+        transform: none;
+        z-index: 2;
+        width: 80%; /* Make the content fit better on small screens */
+      }
+
+      #name {
+        font-size: 2.5rem; /* Adjust font size for smaller screens */
+      }
+
+      #one-liner {
+        font-size: 1.1rem; /* Adjust font size for smaller screens */
+      }
+
+      #profile {
+        width: 200px; /* Adjust the image size for smaller screens */
+        height: 200px;
+        margin-top: 20px;
+        left: 0%; /* Center the image horizontally */
+      }
+
+      #cv-circle {
+        width: 80px;
+        height: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* New text "Click anywhere for CV" on mobile */
+      #mobile-text {
+        font-size: 1.2rem;
+        color: #00ffe1b3; /* Blue text color */
+        font-weight: bold;
+        margin-top: 20px;
+        z-index: 2;
+      }
     }
   </style>
 </head>
@@ -106,6 +157,11 @@
   <!-- Circle with link to CV (this will no longer be needed for opening the PDF) -->
   <div id="cv-circle">
     <a href="Mustafa_Abbas_Academic_CV.pdf" target="_blank">Click for CV</a>
+  </div>
+
+  <!-- New text for mobile saying "Click anywhere for CV" -->
+  <div id="mobile-text">
+    Click anywhere for CV
   </div>
 
   <script>
