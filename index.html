@@ -103,7 +103,7 @@
     <img src="pic.jpg" alt="Mustafa Abbas">
   </div>
 
-  <!-- Circle with link to CV -->
+  <!-- Circle with link to CV (this will no longer be needed for opening the PDF) -->
   <div id="cv-circle">
     <a href="Mustafa_Abbas_Academic_CV.pdf" target="_blank">Click for CV</a>
   </div>
@@ -111,6 +111,14 @@
   <script>
     const circle = document.getElementById('cv-circle');
 
+    // Open the PDF when clicking anywhere that is not the link
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('a')) {  // Check if clicked element is not a link
+        window.open('Mustafa_Abbas_Academic_CV.pdf', '_blank');  // Open PDF in new tab
+      }
+    });
+
+    // Make the circle follow the mouse
     document.addEventListener('mousemove', (e) => {
       circle.style.left = `${e.pageX - 50}px`;
       circle.style.top = `${e.pageY - 50}px`;
