@@ -12,10 +12,24 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      background: linear-gradient(135deg, #000000, #341f59);
+      background-image: url('BG Gif.gif'); /* Set background to the GIF */
+      background-size: cover; /* Ensure the background covers the full screen */
+      background-position: center; /* Center the background */
       cursor: none;
       position: relative;
       font-family: Arial, sans-serif;
+    }
+
+    /* Darkening Overlay */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Darken the background */
+      z-index: 1; /* Ensure it's behind the content */
     }
 
     /* Heading for your name on the left */
@@ -27,7 +41,7 @@
       font-size: 4rem;
       color: white;
       font-weight: bold;
-      z-index: 2; /* Ensure it's above the circle */
+      z-index: 2; /* Ensure it's above the overlay */
     }
 
     /* One-liner below the name */
@@ -38,7 +52,7 @@
       font-size: 1.2rem;
       color: white;
       font-style: italic;
-      z-index: 2; /* Ensure it's above the circle */
+      z-index: 2; /* Ensure it's above the overlay */
     }
 
     /* Profile Image */
@@ -52,7 +66,7 @@
       border: 5px solid white;
       left: 70%;
       transform: translateY(50%); /* Center it vertically */
-      z-index: 2; /* Ensure it's above the circle */
+      z-index: 2; /* Ensure it's above the overlay */
     }
 
     #profile img {
