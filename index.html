@@ -1,93 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mustafa Abbas Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Link to the CSS file -->
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mustafa Abbas Portfolio</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
-</head>
+  <body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
 
-<body>
-  <!-- Navbar -->
-  <div id="navbar-container"></div>
+    <!-- Heading for your name on the left -->
+    <div id="name">Mustafa Abbas</div>
 
-  <!-- Heading for your name on the left -->
-  <div id="name">
-    Mustafa Abbas
-  </div>
+    <!-- One-liner below the name -->
+    <div id="one-liner">Aspiring Computer Scientist and Researcher</div>
 
-  <!-- One-liner below the name -->
-  <div id="one-liner">
-    Aspiring Computer Scientist and Researcher
-  </div>
+    <!-- Profile Image -->
+    <div id="profile">
+      <img src="pic.jpg" alt="Mustafa Abbas" />
+    </div>
 
-  <!-- Profile Image -->
-  <div id="profile">
-    <img src="pic.jpg" alt="Mustafa Abbas">
-  </div>
+    <!-- Circle with link to CV (this will no longer be needed for opening the PDF) -->
+    <div id="cv-circle">
+      <a href="Mustafa_Abbas_Academic_CV.pdf" target="_blank">Click for CV</a>
+    </div>
 
-  <!-- Circle with link to CV (this will no longer be needed for opening the PDF) -->
-  <div id="cv-circle">
-    <a href="Mustafa_Abbas_Academic_CV.pdf" target="_blank">Click for CV</a>
-  </div>
+    <!-- New text for mobile saying "Click anywhere for CV" -->
+    <div id="mobile-text"></div>
 
-  <!-- New text for mobile saying "Click anywhere for CV" -->
-  <div id="mobile-text"></div>
+    <!-- Include the main script directly here -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+        if (currentPage === "index.html" || currentPage === "") {
+          document.body.style.cursor = "none"; // Hide the cursor on index.html
+        } else {
+          document.body.style.cursor = "auto"; // Default cursor for other pages
+        }
+      });
 
-  <!-- Include the main script directly here -->
-  <script>
-    // Load the navbar dynamically
-    document.addEventListener("DOMContentLoaded", () => {
-      fetch("navbar.html")
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById("navbar-container").innerHTML = data;
-        })
-        .catch(error => console.error("Error loading navbar:", error));
-    });
+      // Load the navbar dynamically
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("navbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("navbar-container").innerHTML = data;
+          })
+          .catch((error) => console.error("Error loading navbar:", error));
+      });
 
+      const circle = document.getElementById("cv-circle");
+      const mobileTextDiv = document.getElementById("mobile-text");
 
-    const circle = document.getElementById('cv-circle');
-    const mobileTextDiv = document.getElementById('mobile-text');
+      // Set mobile text for CV link
+      const setCVText = () => {
+        if (window.innerWidth < 768) {
+          mobileTextDiv.innerText = "Click here for CV";
+        } else {
+          mobileTextDiv.innerText = "";
+        }
+      };
 
-    // Set mobile text for CV link
-    const setCVText = () => {
-      if (window.innerWidth < 768) {
-        mobileTextDiv.innerText = "Click here for CV";
-      } else {
-        mobileTextDiv.innerText = "";
-      }
-    };
+      // Set the text initially
+      setCVText();
 
-    // Set the text initially
-    setCVText();
+      // Update the text on window resize
+      window.addEventListener("resize", setCVText);
 
-    // Update the text on window resize
-    window.addEventListener('resize', setCVText);
+      // Open the PDF when clicking anywhere that is not the link
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest("a")) {
+          // Check if clicked element is not a link
+          window.open("Mustafa_Abbas_Academic_CV.pdf", "_blank"); // Open PDF in new tab
+        }
+      });
 
-    // Open the PDF when clicking anywhere that is not the link
-    document.addEventListener('click', (event) => {
-      if (!event.target.closest('a')) {  // Check if clicked element is not a link
-        window.open('Mustafa_Abbas_Academic_CV.pdf', '_blank');  // Open PDF in new tab
-      }
-    });
+      // Make the circle follow the mouse
+      document.addEventListener("mousemove", (e) => {
+        circle.style.left = `${e.pageX - 50}px`;
+        circle.style.top = `${e.pageY - 50}px`;
+        circle.style.opacity = 1;
+      });
 
-    // Make the circle follow the mouse
-    document.addEventListener('mousemove', (e) => {
-      circle.style.left = `${e.pageX - 50}px`;
-      circle.style.top = `${e.pageY - 50}px`;
-      circle.style.opacity = 1;
-    });
+      document.addEventListener("mouseleave", () => {
+        circle.style.opacity = 0;
+      });
 
-    document.addEventListener('mouseleave', () => {
-      circle.style.opacity = 0;
-    });
-
-    document.addEventListener('mouseenter', () => {
-      circle.style.opacity = 1;
-    });
-  </script>
-</body>
-
+      document.addEventListener("mouseenter", () => {
+        circle.style.opacity = 1;
+      });
+    </script>
+  </body>
 </html>
