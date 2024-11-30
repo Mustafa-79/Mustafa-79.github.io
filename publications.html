@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Publications - Mustafa Abbas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Publications Section -->
+    <div id="publications-section">
+      <h1 id="publications-heading">Publications</h1>
+      <div id="publications-container">
+        <div class="publication" onclick="window.open('https://arxiv.org/abs/2409.11252')">
+          <h3>WER We Stand: Benchmarking Urdu ASR Models</h3>
+          <p>
+            <strong>Authors:</strong> Samee Arif, Sualeha Farid, Aamina Jamal
+            Khan, Mustafa Abbas, Agha Ali Raza, Awais Athar <br />
+            <strong>Year:</strong> 2024 <br />
+            <strong>Venue:</strong> COLING 2025 <br />
+            <strong>Category:</strong> Computational Linguistics (cs.CL)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include the main script to load navbar -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("navbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("navbar-container").innerHTML = data;
+          })
+          .catch((error) => console.error("Error loading navbar:", error));
+      });
+    </script>
+  </body>
+</html>

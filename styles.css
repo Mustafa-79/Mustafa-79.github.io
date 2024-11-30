@@ -139,7 +139,7 @@ a {
 /* Contact Page Styles */
 #contact-heading {
 	text-align: center;
-	font-size: 5rem;
+	font-size: 4rem;
 	font-weight: bold;
 	color: wheat;
 	/* margin-bottom: 40px; */
@@ -215,7 +215,94 @@ a {
 	top: 2px;
 
 	color: rgb(255, 255, 255);
+}
 
+
+#navbar-container {
+	background-color: #333;
+	color: white;
+	padding: 15px;
+	text-align: center;
+}
+
+#publications-section {
+	width: 80%;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: rgba(0, 0, 0, 0.724);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	color: white;
+	z-index: 2;
+}
+
+#publications-heading {
+	text-align: center;
+	font-size: 2em;
+	margin-bottom: 40px;
+	padding: 10px;
+	border-radius: 10px;
+	border: 2px solid wheat;
+	transition: all 0.3s ease;
+	text-transform: uppercase;
+}
+
+#publications-heading:hover {
+	background-color: wheat;
+	color: #3a1f0f;
+	transition: all 0.3s ease;
+	border: 2px solid #6797b7;
+}
+
+#publications-container {
+	overflow-y: auto;
+	max-height: 400px;
+	/* Enables scrolling */
+	/* margin: 20px auto;
+	padding: 20px; */
+	text-align: left;
+}
+
+#publications-container strong{
+	color: #6797b7;
+}
+
+.publication {
+	/* border-bottom: 1px solid #ddd; */
+	padding: 15px 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+.publication:hover {
+	background-color: #202020;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	border: 1px solid wheat;
+}
+
+/* .publication:last-child {
+	border-bottom: none;
+} */
+
+.publication h3 {
+	margin: 0;
+	font-size: 1.2em;
+	color: wheat;
+}
+
+.publication p {
+	margin: 5px 0 0;
+	line-height: 1.5;
+}
+
+.publication a {
+	color: #0056b3;
+	text-decoration: none;
+}
+
+.publication a:hover {
+	text-decoration: underline;
 }
 
 /* Media query for mobile devices */
@@ -307,7 +394,7 @@ a {
 
 	/* Contact Section for Mobile */
 	#contact-heading {
-		font-size: 2rem;
+		font-size: 3rem;
 		/* Adjust font size for smaller screens */
 	}
 
