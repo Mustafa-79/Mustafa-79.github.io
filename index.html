@@ -28,7 +28,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* Darken the background */
+      background: rgba(0, 0, 0, 0.75); /* Darken the background */
       z-index: 1; /* Ensure it's behind the content */
     }
 
@@ -98,9 +98,9 @@
       text-decoration: none;
     }
 
-    #mobile-text {
+    /* #mobile-text {
       display: none; /* Hide the text on desktop */
-    }
+
 
     /* Media query for mobile devices */
     @media (max-width: 768px) {
@@ -117,6 +117,7 @@
         transform: none;
         z-index: 2;
         width: 80%; /* Make the content fit better on small screens */
+        left: 0; /* Center the content horizontally */
       }
 
       #name {
@@ -143,10 +144,19 @@
 
       /* New text "Click anywhere for CV" on mobile */
       #mobile-text {
-        font-size: 1.2rem;
-        color: #00ffe1b3; /* Blue text color */
+        background-color: #3e321777;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: 2px solid wheat;
+        /* border-color: wheat; */
+        text-align: center;
+        font-size: 16px;
         font-weight: bold;
-        margin-top: 20px;
+        cursor: pointer;
+        width: fit-content;
+        margin: 20px auto;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 2;
       }
     }
@@ -174,12 +184,26 @@
   </div>
 
   <!-- New text for mobile saying "Click anywhere for CV" -->
-  <div id="mobile-text">
-    Click anywhere for CV
-  </div>
+  <div id="mobile-text"></div>
+
 
   <script>
     const circle = document.getElementById('cv-circle');
+
+    const mobileTextDiv = document.getElementById('mobile-text');
+    const setCVText = () => {
+        if (window.innerWidth < 768) {
+        mobileTextDiv.innerText = "Click here for CV";
+        } else {
+        mobileTextDiv.innerText = "";
+        }
+    };
+
+    // Set the text initially
+    setCVText();
+
+    // Update the text on window resize
+    window.addEventListener('resize', setCVText);
 
     // Open the PDF when clicking anywhere that is not the link
     document.addEventListener('click', (event) => {
