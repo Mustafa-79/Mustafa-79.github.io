@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me - Mustafa Abbas</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
+  
+  <!-- Add Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+
+  <!-- Heading for Contact Me -->
+  <div id="contact-heading">
+    Contact Me
+  </div>
+
+  <!-- Email and LinkedIn Section -->
+  <div id="contact-info">
+    <div id="email">
+      <strong>Email:</strong> 
+      <a href="mailto:25100079@lums.edu.pk">
+        <i class="fas fa-envelope"></i>  <!-- Email Icon -->
+        25100079@lums.edu.pk
+      </a>
+    </div>
+    <div id="linkedin">
+      <strong>LinkedIn:</strong>
+      <a href="https://www.linkedin.com/in/mustafa-abbas79" target="_blank">
+        <i class="fab fa-linkedin"></i>  <!-- LinkedIn Icon -->
+        mustafa-abbas79
+      </a>
+    </div>
+  </div>
+
+  <!-- Include the main script directly here -->
+  <script>
+    // Load the navbar dynamically
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("navbar-container").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading navbar:", error));
+    });
+  </script>
+</body>
+
+</html>
