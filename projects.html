@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Mustafa Abbas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      .highlight {
+        color: #6797b7;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Projects Section -->
+    <div id="projects-section">
+      <h1 id="projects-heading">Projects</h1>
+      <div id="projects-container">
+        <div class="project">
+          <h3>Addressing Data Heterogeneity in Federated Learning</h3>
+          <p>
+            Investigated challenges of <span class="highlight">non-IID data</span> in <span class="highlight">Federated Learning (FL)</span>. Developed novel <span class="highlight">latent space alignment</span> techniques such as <span class="highlight">Gradient Harmonization Between Losses (FedAlign)</span> and <span class="highlight">Adversarial Feature Alignment</span> to mitigate <span class="highlight">client drift</span>. Designed an experimental workflow integrating alignment and classification losses to evaluate performance across diverse FL scenarios, achieving state-of-the-art accuracy of <span class="highlight">76.88%</span> on <span class="highlight">CIFAR-10 dataset</span> with label and quantity skew, outperforming baseline FedAvg and other benchmark techniques.
+          </p>
+        </div>
+        <div class="project">
+          <h3>Landmark 3D Reconstruction and App Deployment</h3>
+          <p>
+            Developed an <span class="highlight">Augmented Reality (AR)</span> <span class="highlight">Android app</span> to visualize a <span class="highlight">3D reconstruction</span> of the Pantheon using <span class="highlight">computer vision techniques</span>. Implemented <span class="highlight">feature detection (SIFT)</span>, robust <span class="highlight">feature matching (FLANN-based KNN)</span>, and <span class="highlight">Structure from Motion (SfM)</span> techniques to process <span class="highlight">1401 image pairs</span>. Utilized <span class="highlight">OpenCV</span> for preprocessing workflows such as <span class="highlight">histogram equalization</span> and <span class="highlight">RANSAC-based outlier removal</span> to improve reconstruction accuracy and camera pose estimation.
+          </p>
+        </div>
+        <div class="project">
+          <h3>Model Compression Techniques for Deep Learning Models</h3>
+          <p>
+            Implemented and evaluated <span class="highlight">pruning</span>, <span class="highlight">quantization</span>, and <span class="highlight">knowledge distillation</span> on <span class="highlight">VGG architectures</span> with <span class="highlight">CIFAR-100</span> to enhance efficiency for resource-limited environments. Utilized structured and unstructured pruning methods based on <span class="highlight">L2 norms</span> for <span class="highlight">channel removal</span>. Compared <span class="highlight">Post-Training Quantization (PTQ)</span> and <span class="highlight">Quantization-Aware Training (QAT)</span> across different bit-widths (<span class="highlight">int8, int4, float16, bfloat16</span>), demonstrating significant accuracy retention with <span class="highlight">QAT</span>. Used <span class="highlight">logit matching</span>, <span class="highlight">hint-based distillation</span>, and <span class="highlight">contrastive representation distillation (CRD)</span> to closely approximate teacher model performance.
+          </p>
+        </div>
+        <div class="project">
+          <h3>Course Recommendation System Using Retrieval-Augmented Generation (RAG)</h3>
+          <p>
+            Developed a <span class="highlight">course and instructor recommendation system</span> using a <span class="highlight">Retrieval-Augmented Generation (RAG)</span> pipeline with <span class="highlight">LangChain</span>, designed to assist students in making informed course selections. Scraped and preprocessed course and instructor reviews from multiple sources, addressing challenges like unofficial course nicknames and abbreviations. Integrated <span class="highlight">Mistral-7B-Instruct LLM</span> with <span class="highlight">ChromaDB vector database</span> for efficient information retrieval. Deployed the system using <span class="highlight">Hugging Face Spaces</span> and <span class="highlight">Gradio</span>, making it accessible for personalized recommendations.
+          </p>
+        </div>
+        <div class="project" onclick="window.open('https://github.com/Mustafa-79/Succession-Planning')">
+          <h3>Succession Planning Software Project</h3>
+          <p>
+            Developed an <span class="highlight">ML-driven HR management platform</span> for <span class="highlight">succession planning</span> and <span class="highlight">workforce optimization</span> in collaboration with <span class="highlight">Devsinc</span>. Created <span class="highlight">regression-based predictive models</span> using historical performance data to assess <span class="highlight">employee KPIs</span>, identify <span class="highlight">high-potential candidates</span>, and highlight <span class="highlight">at-risk employees</span>. Implemented <span class="highlight">security features</span> like <span class="highlight">role-based access control</span>, <span class="highlight">two-factor authentication</span>, and <span class="highlight">data encryption</span> to safeguard sensitive employee data. Integrated <span class="highlight">mentor-mentee matching</span>, <span class="highlight">personalized training recommendations</span>, and <span class="highlight">progress tracking</span> features based on <span class="highlight">skill gaps</span> and <span class="highlight">career goals</span> to enhance employee development.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include the main script to load navbar -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("navbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("navbar-container").innerHTML = data;
+          })
+          .catch((error) => console.error("Error loading navbar:", error));
+      });
+    </script>
+  </body>
+</html>
