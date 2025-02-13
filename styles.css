@@ -14,7 +14,10 @@ body {
 	/* Center the background */
 	cursor: auto;
 	position: relative;
-	font-family: Arial, sans-serif;
+	/* font-family: Arial, sans-serif; */
+
+    font-family: 'Courier New', Courier, monospace;
+    /* font-family: 'Times New Roman', Times, serif;     */
 }
 
 /* Darkening Overlay */
